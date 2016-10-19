@@ -1,0 +1,24 @@
+// ----------------------------------------------------------------------------
+// Widget-stbattery styles
+// ----------------------------------------------------------------------------
+@import "/app/assets/stylesheets/themes/current.scss";
+
+.widget-stbattery {
+
+  .value {
+    color: $battery-value-color;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .unit {
+    color: $battery-unit-color;
+    font-size: 250%;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
+}
