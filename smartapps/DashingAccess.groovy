@@ -38,7 +38,7 @@ preferences {
         input "switches", "capability.switch", title: "Which switches?", multiple: true, required: false
         input "temperatures", "capability.temperatureMeasurement", title: "Which temperature sensors?", multiple: true, required: false
         input "humidities", "capability.relativeHumidityMeasurement", title: "Which humidity sensors?", multiple: true, required: false
-
+        input "baterries", "capability.battery", title: "Which battery sensors?", multiple: true, required: false
     }
 }
 
@@ -122,6 +122,11 @@ mappings {
             GET: "getWeather"
         ]
     }
+    path("/battery") {
+        action: [
+            GET: "getBattery"
+        ]
+    }
 }
 
 
@@ -151,7 +156,7 @@ def initialize() {
         "switch": [:],
         "temperature": [:],
         "humidity": [:],
-
+        "battery": [:],
         ]
 
     subscribe(contacts, "contact", contactHandler)
@@ -165,7 +170,7 @@ def initialize() {
     subscribe(switches, "switch", switchHandler)
     subscribe(temperatures, "temperature", temperatureHandler)
     subscribe(humidities, "humidity", humidityHandler)
-
+    subscribe(batteries, "battery", batteryHandler)
 }
 
 
@@ -624,6 +629,40 @@ def getWeather() {
         feature = "conditions"
     }
     return getWeatherFeature(feature)
+}
+
+//
+// Batteries
+//
+def getBattery() {
+    def deviceId = request.JSON?.deviceId
+    log.trace "getBattery ${deviceId}"
+
+    if (deviceId) {
+        registerWidget("battery", deviceId, request.JSON?.widgetId)
+
+        def whichBattery = batteries.find { it.displayName == deviceId }
+        if (!whichBattery) {
+            return respondWithStatus(404, "Device '${deviceId}' not found.")
+        } else {
+            return [
+                "deviceId": deviceId,
+                "value": whichBattery.latestValue("battery")]
+        }
+    }
+
+    def result = [:]
+    batteries.each {
+        result[it.displayName] = [
+            "value": it.latestValue("battery"),
+            "widgetId": state.widgets.battery[it.displayName]]}
+
+    return result
+}
+
+def batteryHandler(evt) {
+    def widgetId = state.widgets.battery[evt.displayName]
+    notifyWidget(widgetId, ["value": evt.value])
 }
 
 
