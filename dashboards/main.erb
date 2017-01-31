@@ -4,16 +4,7 @@
 
 <div class="gridster">
   <ul>
-    <!-- Navigation -->
-    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-right" data-title="Next" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
-    </li>   	
-
-	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="reload" data-view="Reload"></div>
-    </li>
-  
-    <!-- Generic -->
+    <!-- Row 1 -->
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="clock" data-view="Clock" data-title="Synergy" data-min="0" data-max="100"></div>
     </li>
@@ -22,52 +13,44 @@
       <div data-id="weather" data-view="Stweather"></div>
     </li>
 
-    <!-- Devices -->
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="firelights" data-view="Stdimmer" data-icon="lightbulb-o" data-title="Fireplace" data-device="Fireplace Lights"></div>
     </li>
 	
 	<li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="livingroomlight" data-view="Stswitch" data-icon="lightbulb-o" data-title="Living Room" data-device="Living Room Light"></div>
+    </li>    
+    
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-right" data-title="Next" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
     </li>
-	
-	<li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+    
+    <!-- Row 2 -->
+	<li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="mode" data-view="Stmode" data-title="Current Mode"></div>
+    </li> 
+    
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="patiolight" data-view="Stswitch" data-icon="lightbulb-o" data-title="Patio" data-device="Patio Light"></div>
     </li>
 	 
 	<li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="frontlights" data-view="Stswitch" data-icon="lightbulb-o" data-title="Front Door" data-device="Front Door Lights"></div>
     </li>
-	
-	<li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="mode" data-view="Stmode" data-title="Current Mode"></div>
-    </li>  	
-	
+ 	
 	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
       <div data-id="washerpower" data-view="Stmeter" data-title="Washer" data-device="Washer Metering Switch" data-min="0" data-max="1000"></div>
     </li>
-	
-	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="dryerpower" data-view="Stmeter" data-title="Dryer" data-device="Dryer Metering Switch" data-min="0" data-max="1000"></div>
-    </li>
-	
-	<li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+
+    <!-- Row 3 -->
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="occmode" data-view="Stmodechange" data-title="Set Home" data-icon="home" data-changemode="Home" data-phrase="I'm Back!" data-countdown="30"></div>
     </li>
 	
 	<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="unoccmode" data-view="Stmodechange" data-title="Set Away" data-icon="road" data-changemode="Away" data-phrase="Goodbye!" data-countdown="30"></div>
     </li>
-	
-	<li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="apresence" data-view="Stpresence" data-title="Alexis" data-device="Alexis"></div>
-    </li>
-	
-	<li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="bpresence" data-view="Stpresence" data-title="Brandon" data-device="Brandon"></div>
-    </li>
-	  
-    <!-- Temperatures -->      
+    
     <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="eltemp" data-view="Sttemp" data-title="Eleni's Bedroom" data-device="Eleni Bedroom"></div>
     </li>
@@ -83,7 +66,20 @@
     <li data-row="3" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="mbrtemp" data-view="Sttemp" data-title="Office" data-device="Office"></div>
     </li>
+	
+	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="dryerpower" data-view="Stmeter" data-title="Dryer" data-device="Dryer Metering Switch" data-min="0" data-max="1000"></div>
+    </li>
     
+    <!-- Row 4 -->
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="apresence" data-view="Stpresence" data-title="Alexis" data-device="Alexis"></div>
+    </li>
+	
+	<li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="bpresence" data-view="Stpresence" data-title="Brandon" data-device="Brandon"></div>
+    </li>
+	         
     <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="octemp" data-view="Sttemp" data-title="Outdoors" data-device="Weather"></div>
     </li>
@@ -98,8 +94,12 @@
     
     <li data-row="4" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="lrtemp" data-view="Sttemp" data-title="Living Room" data-device="Thermostat"></div>
-    </li>      
-	  	  		 	
+    </li>   
+    
+	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>
+      	  	  		 	
   </ul>
 </div>
 
