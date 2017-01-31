@@ -1,9 +1,25 @@
-<script type='text/javascript'></script>
+<script type='text/javascript'>
+$(function() {
+  Dashing.widget_base_dimensions = [138, 145]
+  Dashing.numColumns = 7
+  Dashing.cycleDashboards({timeInSeconds: 0, stagger: true, page: 1});
+});  
+</script>
 
 <% content_for :title do %>HADashboard<% end %>
 
 <div class="gridster">
   <ul>
+    <!-- Navigation -->
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-right" data-title="Next" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>   	
+
+	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>
+  
+    <!-- Generic -->
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="clock" data-view="Clock" data-title="Synergy" data-min="0" data-max="100"></div>
     </li>
@@ -12,6 +28,7 @@
       <div data-id="weather" data-view="Stweather"></div>
     </li>
 
+    <!-- Devices -->
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="firelights" data-view="Stdimmer" data-icon="lightbulb-o" data-title="Fireplace" data-device="Fireplace Lights"></div>
     </li>
@@ -30,18 +47,6 @@
 	 
 	<li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="frontlights" data-view="Stswitch" data-icon="lightbulb-o" data-title="Front Door" data-device="Front Door Lights"></div>
-    </li>
-	
-	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="rearoutlet" data-view="Stswitch" data-icon="tree" data-title="Rear Lights" data-device="Patio Outlet"></div>
-    </li>
-	
-	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="frontoutlet" data-view="Stswitch" data-icon="tree" data-title="Front Lights" data-device="Front Door Outlet"></div>
-    </li>
-
-	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="reload" data-view="Reload"></div>
     </li>
 	
 	<li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
@@ -91,12 +96,19 @@
     <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="fmtemp" data-view="Sttemp" data-title="Zoe's Room" data-device="Zoe Bedroom"></div>
     </li>
-	
-	<li data-row="4" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-id="bstemp" data-view="Sttemp" data-title="Basement" data-device="Sump Pump"></div>
-    </li>
-	
-	 
-	
+		 	
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+    <!-- Navigation -->
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-left" data-title="Back" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>   	
+
+	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>    
   </ul>
 </div>
