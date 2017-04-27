@@ -305,7 +305,7 @@ def getPower() {
 
 def meterPowerHandler(evt) {
     def widgetId = state.widgets.power[evt.displayName]
-    notifyWidget(widgetId, ["power": evt.value])
+    notifyWidget(widgetId, ["power": (Math.round(Double.parseDouble(evt.value)))])
 }
 
 def meterEnergyHandler(evt) {
