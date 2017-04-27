@@ -288,7 +288,7 @@ def getPower() {
         } else {
             return [
                 "deviceId": deviceId,
-                "power": whichMeter.currentValue("power")]
+                "power": whichMeter.currentValue("power"),
 				"energy": whichMeter.currentValue("energy")]
         }
     }
