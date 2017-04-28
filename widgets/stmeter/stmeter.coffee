@@ -2,11 +2,15 @@ class Dashing.Stmeter extends Dashing.Widget
   constructor: ->
     super
     @queryState()
-    @observe 'value', (value) ->
-      $(@node).find(".stmeter").val(value).trigger('change')
+    @observe 'power', (power) ->
+      $(@node).find(".stmeter").val(power).trigger('change')
     
-  @accessor 'value', Dashing.AnimatedValue    
-
+  @accessor 'power', Dashing.AnimatedValue
+	
+  @accessor 'totalizedEnergy', ->
+    e = @get('energy')
+    "Total Usage: #{e} kWh"
+  
   queryState: ->
     $.get '/smartthings/dispatch',
       widgetId: @get('id'),
@@ -14,7 +18,8 @@ class Dashing.Stmeter extends Dashing.Widget
       deviceId: @get('device')
       (data) =>
         json = JSON.parse data
-        @set 'value', json.value
+        @set 'power', json.power
+        @set 'energy', json.energy
 
   ready: ->
     stmeter = $(@node).find(".stmeter")

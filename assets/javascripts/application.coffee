@@ -30,3 +30,6 @@ Dashing.on 'ready', ->
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) )
        $('.gridster > ul').each ->
          $(@).gridster().data('gridster').draggable().disable()
+		 
+  Batman.Filters.fixed = (num, f) ->
+    return parseFloat(num).toFixed(f)
