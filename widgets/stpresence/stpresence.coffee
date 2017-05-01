@@ -8,7 +8,8 @@ class Dashing.Stpresence extends Dashing.Widget
     set: (key, value) -> @_state = value
 
   @accessor 'icon',
-    get: -> if @get('state') == 'present' then 'user' else 'times'
+    get: -> if @['icon'] then @['icon'] else
+      if @get('state') == 'present' then @get('iconon') else 'times'
     set: Batman.Property.defaultAccessor.set
 
   @accessor 'icon-style', ->
