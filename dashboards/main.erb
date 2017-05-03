@@ -2,7 +2,7 @@
 
 <% content_for :title do %>HADashboard<% end %>
 
-<div class="gridster">
+<div class="gridster" id="main">
   <ul>
     <!-- Row 1 -->
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
@@ -21,10 +21,6 @@
       <div data-id="livingroomlight" data-view="Stswitch" data-icon="lightbulb-o" data-title="Living Room" data-device="Living Room Light"></div>
     </li>    
     
-    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-right" data-title="Next" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
-    </li>
-    
     <!-- Row 2 -->
 	<li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="mode" data-view="Stmode" data-title="Current Mode"></div>
@@ -36,10 +32,6 @@
 	 
 	<li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="frontlights" data-view="Stswitch" data-icon="lightbulb-o" data-title="Front Door" data-device="Front Door Lights"></div>
-    </li>
- 	
-	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="washerpower" data-view="Stmeter" data-title="Washer" data-device="Washer Metering Switch" data-min="0" data-max="1000" data-suffix="W"></div>
     </li>
 
     <!-- Row 3 -->
@@ -66,10 +58,6 @@
     <li data-row="3" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="mbrtemp" data-view="Sttemp" data-title="Office" data-device="Office"></div>
     </li>
-	
-	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="dryerpower" data-view="Stmeter" data-title="Dryer" data-device="Dryer Metering Switch" data-min="0" data-max="1000" data-suffix="W"></div>
-    </li>
     
     <!-- Row 4 -->
     <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
@@ -79,53 +67,102 @@
 	<li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="bpresence" data-view="Stpresence" data-icon="male" data-title="Brandon" data-device="Brandon"></div>
     </li>
-	         
+    
     <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="octemp" data-view="Sttemp" data-title="Outdoors" data-device="Weather"></div>
     </li>
-    
+	
     <li data-row="4" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="attemp" data-view="Sttemp" data-title="Attic" data-device="Attic"></div>
     </li>
-    
+	
     <li data-row="4" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="fmtemp" data-view="Sttemp" data-title="Family Room" data-device="Family Room"></div>
     </li>
     
     <li data-row="4" data-col="6" data-sizex="1" data-sizey="1">
       <div data-id="lrtemp" data-view="Sttemp" data-title="Living Room" data-device="Thermostat"></div>
-    </li>   
-    
+    </li>     
+	
+	<!-- Navigation -->
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1-1" data-view="ChangePage" data-icon="home" data-title="Home" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="main"></div>
+    </li>
+	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1-2" data-view="ChangePage" data-icon="dashcube" data-title="Basement" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="basement"></div>
+    </li> 
+	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1-3" data-view="ChangePage" data-icon="dashcube" data-title="Outside" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="outside"></div>
+    </li>		
+	<!-- Reload -->
 	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
       <div data-id="reload" data-view="Reload"></div>
-    </li>
-      	  	  		 	
+    </li>      	  	  		 	
   </ul>
 </div>
 
-<div class="gridster">
+<div class="gridster" id="basement">
   <ul>
-    <!-- Navigation -->
+    <!-- Devices -->
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="basementstairs" data-view="Stswitch" data-icon="lightbulb-o" data-title="Basement Stairs" data-device="Basement Stairs Lights"></div>
     </li>
+	
 	<li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="heaterpower" data-view="Stmeter" data-title="Heater" data-device="Basement Heater Metering Switch" data-min="0" data-max="1000" data-suffix="W"></div>
     </li>	
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+    
+	<li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="basementlights1" data-view="Stswitch" data-icon="lightbulb-o" data-title="Basement Lights Set 1" data-device="Basement Lights Set #1"></div>
     </li>
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+    
+	<li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="basementlights2" data-view="Stswitch" data-icon="lightbulb-o" data-title="Basement Lights Set 2" data-device="Basement Lights Set #2"></div>
     </li>
-    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+    
+	<li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="basementlights3" data-view="Stswitch" data-icon="lightbulb-o" data-title="Basement Lights Set 3" data-device="Basement Lights Set #3"></div>
     </li>
-    
+	
+	<li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="washerpower" data-view="Stmeter" data-title="Washer" data-device="Washer Metering Switch" data-min="0" data-max="1000" data-suffix="W"></div>
+    </li>
+	
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="dryerpower" data-view="Stmeter" data-title="Dryer" data-device="Dryer Metering Switch" data-min="0" data-max="1000" data-suffix="W"></div>
+    </li>
+    <!-- Navigation -->
     <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="cpage1" data-view="ChangePage" data-icon="arrow-circle-left" data-title="Back" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
-    </li>   	
+      <div data-id="cpage2-1" data-view="ChangePage" data-icon="home" data-title="Home" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="main"></div>
+    </li>
+	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage2-2" data-view="ChangePage" data-icon="dashcube" data-title="Basement" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="basement"></div>
+    </li> 
+	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage2-3" data-view="ChangePage" data-icon="dashcube" data-title="Outside" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="outside"></div>
+    </li>	
+	<!-- Reload -->
+	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>    
+  </ul>
+</div>
 
+<div class="gridster" id="outside">
+  <ul>
+	<!-- Devices -->
+	
+    <!-- Navigation -->
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage3-1" data-view="ChangePage" data-icon="home" data-title="Home" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="main"></div>
+    </li>
+	<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage3-2" data-view="ChangePage" data-icon="dashcube" data-title="Basement" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="basement"></div>
+    </li> 
+	<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage3-3" data-view="ChangePage" data-icon="dashcube" data-title="Outside" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-page="outside"></div>
+    </li>  	
+	<!-- Reload -->
 	<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
       <div data-id="reload" data-view="Reload"></div>
     </li>    

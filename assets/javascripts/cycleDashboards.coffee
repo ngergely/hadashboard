@@ -318,8 +318,11 @@ Dashing.cycleDashboardsNow = do () ->
  
 		# Work out which dashboard to show		
 		oldVisibleIndex = visibleIndex
-		if boardnumber?
-			visibleIndex = boardnumber - 1
+		# Old, index only way
+		# if boardnumber?
+		#	visibleIndex = boardnumber - 1
+		if !isFinite(boardnumber)
+			visibleIndex = $dashboards.index(document.getElementById(boardnumber))
 		else
 			visibleIndex++
 			if visibleIndex >= $dashboards.length
