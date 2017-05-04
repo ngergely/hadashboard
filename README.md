@@ -189,6 +189,7 @@ The basic anatomy of a widget is this:
 - **data-countdown**: A delay in seconds used by the Stmodechange widget to delay the mode change / phrase execution.
 - **data-event-touchend**: Adds interactivity to this widget. Set this to **onClick** if you want the widget to react to interactions. Removing this property makes the widget static. Refers to interactivity on mobile devices.
 - **data-event-click**: Same as **data-event-touchend**, but for desktop browsers.
+- **data-page**: Functionality for the changepage widget only.  This is the identifier of the dashboard page the widget will navigate to.  It needs to match the id that is assigned to the specific gridster object.  If data-page isn't supplied, changepage widget will just go to the next one in the list of gridster object.
 
 Please, refer to the Dashing website for instructions on how to change the grid and tile size, as well as more general instructions about widgets, their properties, and how to create new widgets.
 
