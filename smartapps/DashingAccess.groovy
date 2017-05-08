@@ -1,9 +1,9 @@
 /**
  *  Dashing Access
  *
- *  Copyright 2014 florianz
+ *  Copyright 2017 florianz/bmmiller
  *
- *  Author: florianz
+ *  Author: florianz/bmmiller
  *  Contributor: bmmiller, Dianoga, mattjfrank, ronnycarr
  *
  */
@@ -39,6 +39,7 @@ preferences {
         input "temperatures", "capability.temperatureMeasurement", title: "Which temperature sensors?", multiple: true, required: false
         input "humidities", "capability.relativeHumidityMeasurement", title: "Which humidity sensors?", multiple: true, required: false
         input "baterries", "capability.battery", title: "Which battery sensors?", multiple: true, required: false
+        input "garagedoors", "capability.garageDoorControl", title: "Which garage doors?", multiple: true, required: false
     }
 }
 
@@ -127,6 +128,12 @@ mappings {
             GET: "getBattery"
         ]
     }
+    path("/garage") {
+    	action: [
+        	GET: "getGarage",
+            POST: "postGarage"
+        ]
+    }
 }
 
 
@@ -157,6 +164,7 @@ def initialize() {
         "temperature": [:],
         "humidity": [:],
         "battery": [:],
+        "garagedoor": [:]
         ]
 
     subscribe(contacts, "contact", contactHandler)
@@ -172,6 +180,7 @@ def initialize() {
     subscribe(temperatures, "temperature", temperatureHandler)
     subscribe(humidities, "humidity", humidityHandler)
     subscribe(batteries, "battery", batteryHandler)
+    subscribe(garagedoors, "garagedoor", garageDoorHandler)
 }
 
 
@@ -673,6 +682,55 @@ def batteryHandler(evt) {
     notifyWidget(widgetId, ["value": evt.value])
 }
 
+//
+// Garage Door
+//
+def getGarage() {
+    def deviceId = request.JSON?.deviceId
+    log.debug "getGarage ${deviceId}"
+
+    if (deviceId) {
+        registerWidget("garagedoor", deviceId, request.JSON?.widgetId)
+
+        def whichGarageDoor = garagedoors.find { it.displayName == deviceId }
+        if (!whichGarageDoor) {
+            return respondWithStatus(404, "Device '${deviceId}' not found.")
+        } else {
+            return [
+                "deviceId": deviceId,
+                "state": whichGarageDoor.currentState]
+        }
+    }
+
+    def result = [:]
+    garagedoors.each {
+        result[it.displayName] = [
+            "state": it.currentState,
+            "widgetId": state.widgets.garagedoor[it.displayName]]}
+
+    return result
+}
+
+def postGarage() {
+    def command = request.JSON?.command
+    def deviceId = request.JSON?.deviceId
+    log.debug "postGarage ${deviceId}, ${command}"
+
+    if (command && deviceId) {
+        def whichGarage = garagedoors.find { it.displayName == deviceId }
+        if (!whichGarage) {
+            return respondWithStatus(404, "Device '${deviceId}' not found.")
+        } else {
+            whichGarage."$command"()
+        }
+    }
+    return respondWithSuccess()		
+}
+
+def garageDoorHandler(evt) {
+    def widgetId = state.widgets.garagedoor[evt.displayName]
+    notifyWidget(widgetId, ["state": evt.value])
+}
 
 //
 // Widget Helpers
