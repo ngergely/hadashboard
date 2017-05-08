@@ -328,8 +328,8 @@ def meterEnergyHandler(evt) {
 def getMode() {
     def widgetId = request.JSON?.widgetId
     if (widgetId) {
-        if (!state['widgets']['mode'].contains(widgetId)) {
-            state['widgets']['mode'].add(widgetId)
+        if (!state['widgets']['mode'].containsKey(widgetId)) {
+            state['widgets']['mode'].put(widgetId.value, widgetId)            
             log.debug "registerWidget for mode: ${widgetId}"
         }
     }
@@ -354,7 +354,7 @@ def postMode() {
 
 def locationHandler(evt) {
     for (i in state['widgets']['mode']) {
-        notifyWidget(i, ["mode": evt.value])
+        notifyWidget(i.value, ["mode": evt.value])
     }
 }
 
