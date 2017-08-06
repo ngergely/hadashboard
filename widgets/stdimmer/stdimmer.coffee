@@ -68,7 +68,7 @@ class Dashing.Stdimmer extends Dashing.ClickableWidget
   ready: ->
 
   onData: (data) ->
-
+    @queryState()
 
   onClick: (event) ->
     if event.target.id == "dimmer"
